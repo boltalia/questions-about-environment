@@ -10,11 +10,12 @@ const perguntas = [
         alternativas: [
             {
                 texto: "sou leigo neste assunto!",
-                afirmacao: "afimação"
+                afirmacao:"Hmmmm, isto não é bom, para falarmos sobre meio ambiente é extremamente necessário saber sobre nossas florestas,"
+            
             },
             {
                 texto: "obtenho este conhecimento!",
-                afirmacao: "afirmação"
+                afirmacao: "Que bom, é essencial ter conhecimento sobre nossa querida floresta,"
             }
         ]
     },
@@ -23,11 +24,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Sim!!!",
-                afirmacao: "afirmação"
+                afirmacao: "incrível, ter ciência dessas organizações é de eximia ajuda,"
             },
             {
                 texto: "Não!!!",
-                afirmacao: "afirmação"
+                afirmacao: "que pena, seria magnifico conhecer alguma,"
             }
         ]
     },
@@ -36,11 +37,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "SIM! REALIZO",
-                afirmacao: "afirmação"
+                afirmacao: "Excelente, isto é um pequeno passo para a melhora do planeta terra, "
             },
             {
                 texto: "NÃO! NÃO AJUDO",
-                afirmacao: "afirmação"
+                afirmacao: "Nada legal, não contribuir com o meio ambiente é prejudicar você mesmo,"
             }
         ]
     },
@@ -49,11 +50,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "SIM! Prejudico",
-                afirmacao: "afirmação"
+                afirmacao: "inaceitável, vivemos um momento de gigante delicadeza e prejudicar o meio ambiente só piora este momento,"
             },
             {
                 texto: "NÃO! NÃo Prejudico",
-                afirmacao: "afirmação"
+                afirmacao: "que bom, quanto mais ajudam, melhor,"
             }
         ]
     },
@@ -62,11 +63,11 @@ const perguntas = [
         alternativas: [
             {
                 texto: "SIM! temos capacidade",
-                afirmacao: "afirmação"
+                afirmacao: "ter esperança é o caminho, com a ajuda em massa conseguiremos a melhora."
             },
             {
                 texto: "NÃO! nao temos condições",
-                afirmacao: "afirmação"
+                afirmacao: "uma resposta esperada, realmente vivemos uma situação complicada e de complexa resolução."
             }
         ]
     },
@@ -111,4 +112,3 @@ function mostraResultado() {
 }
 
 mostraPergunta();
-
