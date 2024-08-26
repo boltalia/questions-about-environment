@@ -1,8 +1,6 @@
-const nomes = ["Fernanda", "Giuliana", "Maria Eduarda", "Marcelo", "Amanda", "Gustavo", "Gabriel"];
-
-export function aleatorio (lista){
-    const posicao = Math.floor(Math.random()* lista.length);
-    return lista[posicao];
+export function aleatorio(afirmacao) {
+    // Implementação da função aleatorio
+    return "Resultado baseado na afirmação: " + afirmacao;
 }
 
-export const nome = aleatorio(nomes)
+export const nome = "Nome Aleatório"; // Substitua pelo nome desejado

@@ -1,7 +1,6 @@
 import { aleatorio, nome } from './aleatorio.js';
 import { perguntas } from './perguntas.js';
 
-const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
@@ -14,9 +13,17 @@ let atual = 0;
 let perguntaAtual;
 let historiaFinal = "";
 
-botaoIniciar.addEventListener('click', iniciaJogo);
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM completamente carregado e analisado.");
+    if (botaoIniciar) {
+        botaoIniciar.addEventListener('click', iniciaJogo);
+    } else {
+        console.error("Botão de iniciar não encontrado.");
+    }
+});
 
 function iniciaJogo() {
+    console.log("Iniciando o jogo...");
     atual = 0;
     historiaFinal = "";
     telaInicial.style.display = 'none';
@@ -33,17 +40,19 @@ function mostraPergunta() {
     }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
-    caixaAlternativas.textContent = "";
+    caixaAlternativas.innerHTML = ""; // Limpar as alternativas
     mostraAlternativas();
 }
 
 function mostraAlternativas() {
     for (const alternativa of perguntaAtual.alternativas) {
-        const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
-        caixaAlternativas.appendChild(botaoAlternativas);
+        const botaoAlternativa = document.createElement("button");
+        botaoAlternativa.textContent = alternativa.texto;
+        botaoAlternativa.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativa);
     }
+    caixaPerguntas.classList.add("mostrar");
+    caixaAlternativas.classList.add("mostrar");
 }
 
 function respostaSelecionada(opcaoSelecionada) {
@@ -61,16 +70,24 @@ function respostaSelecionada(opcaoSelecionada) {
 function mostraResultado() {
     caixaPerguntas.textContent = `Em 2049, ${nome}`;
     textoResultado.textContent = historiaFinal;
-    caixaAlternativas.textContent = "";
+    caixaAlternativas.innerHTML = ""; // Limpar alternativas
     caixaResultado.classList.add("mostrar");
-    botaoJogarNovamente.addEventListener("click", jogaNovamente);
 }
 
 function jogaNovamente() {
+    console.log("Jogando novamente...");
     atual = 0;
     historiaFinal = "";
     caixaResultado.classList.remove("mostrar");
-    mostraPergunta();
+    telaInicial.style.display = 'block';
+    caixaPerguntas.classList.remove("mostrar");
+    caixaAlternativas.classList.remove("mostrar");
+}
+
+if (botaoJogarNovamente) {
+    botaoJogarNovamente.addEventListener("click", jogaNovamente);
+} else {
+    console.error("Botão de jogar novamente não encontrado.");
 }
 
 function substituiNome() {
